@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
-
 import { AppComponent } from './app.component';
 
 

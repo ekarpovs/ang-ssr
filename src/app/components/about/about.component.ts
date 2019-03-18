@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
+import { Title, Meta, TransferState, makeStateKey } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
+
+// make state key in state to store users
+const STATE_KEY_USERS = makeStateKey('users');
 
 @Component({
     selector: 'app-about',
@@ -13,7 +16,8 @@ export class AboutComponent implements OnInit {
     constructor(
         private title: Title,
         private meta: Meta,
-        private http: HttpClient
+        private http: HttpClient,
+        private state: TransferState
     ) { }
 
     ngOnInit() {
@@ -22,11 +26,16 @@ export class AboutComponent implements OnInit {
             description: 'Welcome to about section'
         });
 
-        this.http.get('https://jsonplaceholder.typicode.com/users')
-        .subscribe((users) => {
-            this.users = users;
-        }, (err) => {
-            console.log(err);
-        });
+        this.users = this.state.get(STATE_KEY_USERS, [] as any);
+
+        if (this.users.length === 0) {
+          this.http.get('https://jsonplaceholder.typicode.com/users')
+          .subscribe((users) => {
+              this.users = users;
+              this.state.set(STATE_KEY_USERS, users as any);
+          }, (err) => {
+              console.log(err);
+          });
+        }
     }
 }

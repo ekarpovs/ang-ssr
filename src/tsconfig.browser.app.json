@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "angularCompilerOptions": {
+      "entryModule": "./app/app.browser.module#AppBrowserModule"
+  },
+  "compilerOptions": {
+      "outDir": "../out-tsc/browser",
+      "types": []
+  },
+  "exclude": [
+      "test.ts",
+      "**/*.spec.ts"
+  ]
+}

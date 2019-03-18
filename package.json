@@ -10,7 +10,7 @@
     "compile:server": "tsc -p tsconfig.server.json",
     "start:ssr": "node dist/server",
     "test": "ng test",
-    "lint": "ng lint ang-ssr",
+    "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -21,7 +21,6 @@
     "@angular/core": "~7.2.0",
     "@angular/forms": "~7.2.0",
     "@angular/http": "^7.2.9",
-    "@angular/material": "^7.3.4",
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/platform-server": "^7.2.9",

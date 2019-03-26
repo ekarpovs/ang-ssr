@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
+import {TransferHttpCacheModule} from '@nguniversal/common';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
         AppModule,
         BrowserModule.withServerTransition({ appId: 'ang-ssr' }),
         ServerModule,
-        ServerTransferStateModule
+        ServerTransferStateModule,
+        TransferHttpCacheModule
     ],
     bootstrap: [AppComponent]
 })
